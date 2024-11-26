@@ -1,0 +1,38 @@
+echo "Styling, testing and building your project before committing"
+
+pnpm format:check ||
+(
+  echo '
+Prettier Check Failed ❌
+Please review the formatting issues above.
+Run pnpm format:fix to automatically fix them, add the changes, and try committing again.
+';
+  false;
+)
+
+# Check ESLint Standards
+pnpm lint ||
+(
+  echo '
+ESLint Check Failed ❌
+Please review the errors above, make the necessary changes, and try committing again.
+For more information, refer to the ESLint documentation.
+'
+  false; 
+)
+
+# If everything passes... Now we can commit
+echo 'Alright! Code looks good to me... Trying to build now. 🤔'
+
+pnpm build ||
+(
+  echo '
+build failed ❌
+please review the errors above and fix them before committing.
+for assistance, refer to the documentation.
+  '
+  false;
+)
+
+# If everything passes... Now we can commit
+echo 'You win this time... I am committing this now. ✅✅✅✅'
