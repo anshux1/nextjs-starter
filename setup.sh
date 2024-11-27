@@ -2,10 +2,10 @@ cp .env.example .env
 
 # Start PostgreSQL container
 docker run -d \
-  --name next-starter \
+  --name db \
   -e POSTGRES_USER=user \
   -e POSTGRES_PASSWORD=password \
-  -e POSTGRES_DB=database \
+  -e POSTGRES_DB=next-starter \
   -p 5432:5432 \
   postgres
 

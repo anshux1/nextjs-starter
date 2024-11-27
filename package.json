@@ -12,8 +12,12 @@
     "lint": "next lint",
     "format:fix": "prettier --write \"**/*.{ts,tsx,json}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,json}\"",
+    "prisma:docker": "pnpm db:migrate && pnpm db:generate && pnpm db:seed && pnpm studio",
+    "dev:docker": "pnpm prisma:docker & next dev",
     "db:migrate": "prisma migrate deploy",
+    "db:generate": "prisma generate",
     "db:seed": "prisma db seed",
+    "studio": "prisma studio",
     "prepare": "husky"
   },
   "dependencies": {
@@ -41,6 +45,7 @@
     "prettier-plugin-organize-imports": "^4.1.0",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "tailwindcss": "^3.4.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }

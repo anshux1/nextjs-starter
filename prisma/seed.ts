@@ -1,25 +1,25 @@
-import db from "../src/db";
+import db from '../src/db';
 
 async function seedUsers() {
   try {
     await db.user.upsert({
-      where: { username: "alice" },
+      where: { username: 'alice' },
       update: {},
       create: {
-        username: "alice",
-        password: "1111",
+        username: 'alice',
+        password: '1111',
       },
-    })
+    });
     await db.user.upsert({
-      where: { username: "kumar" },
+      where: { username: 'kumar' },
       update: {},
       create: {
-        username: "kumar",
-        password: "2222",
+        username: 'kumar',
+        password: '2222',
       },
-    })
+    });
   } catch (error) {
-    console.error("Error seeding users: ", error);
+    console.error('Error seeding users: ', error);
     throw error;
   }
 }
