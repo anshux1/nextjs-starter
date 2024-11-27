@@ -20,7 +20,7 @@ pnpm install
 pnpm db:migrate
 
 # Generate Prisma client
-pnpm prisma generate
+pnpm db:generate
 
 # Seed the database
 pnpm db:seed
